@@ -1,11 +1,11 @@
-# Market_Research_GenAI-
+# Market_Research_GenAI
 📊 Trending Product Insights with LangGraph + Streamlit
 
 This project extracts trending product insights from the web using LangGraph, caches results for reproducibility, and provides an interactive Streamlit dashboard for analysis.
 
 It is designed for retail & CPG use cases where business users need actionable insights about categories like Energy Drinks, Salty Snacks, Cigarettes, Beer, Wine, Carbonated Drinks, and Water.
 
-🚀 ### Features
+#🚀 Features
 
 LangGraph Agent Workflow
 
@@ -38,6 +38,7 @@ Unit tests for nodes and cache utilities
 Integration tests for full workflow
 
 📂 Project Structure
+
 .
 ├── cache_utils.py        # Cache save/load/lookup helpers
 ├── config.py             # Config & prompts
