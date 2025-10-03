@@ -5,46 +5,26 @@ This project extracts trending product insights from the web using LangGraph, ca
 
 It is designed for retail & CPG use cases where business users need actionable insights about categories like Energy Drinks, Salty Snacks, Cigarettes, Beer, Wine, Carbonated Drinks, and Water.
 
-#🚀 Features
+## components
+1. LangGraph Workflow Enabled with travily Search
+2. 6 modular nodes (Query Generation, web search, Product extract, summarize, report, etc.)
+3. Each node cached individually for reliability
+4. Cache reuse when category + timeframe match
+5. Hash-based keys (SHA256) for category + start/end date
+6. Streamlit Dashboard(Tabs for Final Report and Product Insights)
 
-LangGraph Agent Workflow
-
-6 modular nodes (search, extract, summarize, report, etc.)
-
-Each node cached individually for reliability
-
-Cache reuse when category + timeframe match
-
-Caching
-
-JSON-based cache with atomic writes
-
-Hash-based keys (SHA256) for category + start/end date
-
-Lookup API to fetch previous results
-
-Streamlit Dashboard
-
-Tabs for Final Report and Product Insights
-
-Interactive cards, charts, and filters
-
-Option to clear cache and regenerate results
-
-#Testing
-
+# Testing
 Unit tests for nodes and cache utilities
-
 Integration tests for full workflow
 
-📂 Project Structure
+# 📂 Project Structure
 
 .
-├── cache_utils.py        # Cache save/load/lookup helpers
-├── config.py             # Config & prompts
-├── task_nodes.py         # LangGraph node implementations
-├── workflow.py           # LangGraph workflow orchestration
-├── app.py                # Streamlit dashboard
+├── cache_utils.py  
+├── config.py       
+├── task_nodes.py        
+├── workflow.py           
+├── app.py            
 ├── tests/
 │   ├── test_cache_utils.py
 │   ├── test_nodes.py
@@ -53,10 +33,6 @@ Integration tests for full workflow
 └── README.md
 
 ⚙️ Installation
-# Clone repository
-git clone https://github.com/your-username/trending-product-insights.git
-cd trending-product-insights
-
 # Create virtual environment
 python -m venv venv
 source venv/bin/activate   # on Linux/Mac
@@ -69,27 +45,21 @@ pip install -r requirements.txt
 1. Run Streamlit Dashboard
 streamlit run app.py
 
+**Select Category from dropdown**
 
-Select Category from dropdown
-
-Choose Start Date and End Date (month/year only, day defaults to 01)
-
-Results are cached automatically
-
-If cache key matches, previous insights are returned instantly
+**Choose Start Date and End Date (month/year only, day defaults to 01)**
+ **Results are cached automatically**
+**If cache key matches, previous insights are returned instantly**
 
 2. Run LangGraph Workflow Independently
-python workflow.py
+python main.py (Make sure, Enter date correctly)
 
 🧪 Testing
 
 Run all tests:
 
 pytest -v
-
-
 Run async tests (requires pytest-asyncio):
-
 pytest -v --asyncio-mode=auto
 
 🔑 Cache System Details
@@ -98,8 +68,6 @@ Key format → SHA256(category + start_date + end_date)
 
 Lookup → Retrieve original category + dates from hex key
 
-Storage → cache.json with atomic write/rename
-
 🛠️ Requirements
 
 Python 3.10+
@@ -107,12 +75,6 @@ Python 3.10+
 Streamlit
 
 LangChain / LangGraph
-
-Prometheus client
-
-Pytest (for testing)
-
-📌 Next Steps
 
 Add authentication to dashboard
 
