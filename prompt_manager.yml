@@ -1,0 +1,52 @@
+#prompts.yaml
+chat_templates:
+  search_query_prompts:
+    - role: "system"
+      content: "You are an expert at creating web search queries to find trending products in a given category. Your goal is to generate a concise, effective search query."
+    - role: "user"
+      content: "Find trending products in the {category} category."
+
+  identify_products:
+    - role: "system"
+      content: "Extract all unique product names and their associated product attributes such as ```flavors``` in a given category from the following text. The output should be a comma-separated list formatted as: `[product1+flavor, product2+flavor, ...]`. If a product has no flavor, just list the product name."
+    - role: "user"
+      content: "Extract products and flavours from category {category} and following text: {text}, 
+                DO NOT INCLUDE EXTRA WORDS OR PHRASES FROM YOUR SIDE.
+                EXTRACTED PRODUCT MUST HAVE BRAND NAME, DO NOT EXTRACT FLAVOR ALONE"
+
+  summarize_product:
+    - role: "system"
+      content : "You are a highly efficient and structured Marketing Assistant. Your primary function is to analyze provided market data and deliver summaries in mandated formats, specifically utilizing Markdown for human-readable lists and JSON for machine-readable data structures. You must strictly adhere to the formatting rules provided in the user's request. DO NOT include any conversational filler, introductory sentences, or concluding remarks outside of the requested output sections."
+    - role: "user"
+      content: "Analyze the provided {category} data {data} to summarize the key features and trending drivers for all given products {product}.
+                  ***OUTPUT MANDATE:** Provide the analysis in JSON/Dictionary Format
+                  * Format: A single valid JSON object. Root key: `Product_Analysis`. Value: An array of objects with keys: `Product_Name`, `Key_Feature`, and `Trending_Driver`.
+                  DO NOT INCLUDE EXTRA WORDS OR PHRASES FROM YOUR SIDE."
+  duplicate_removal:
+    - role: "system"
+      content: "You are an expert data processor specializing in {category} market analysis. Your task is to clean and filter a provided JSON list of {category} products."
+    - role: "user"
+      content: "Follow these two steps precisely:**STEP 1: Deduplicate the List** Remove all duplicate entries based ONLY on the ```Product_Name``` field.If multiple entries share the same ```Product_Name```, keep the FIRST occurrence encountered in the list and discard all subsequent occurrences.**STEP 2: Filter by Brand Association** From the deduplicated list, 
+              remove any products whose ```Product_Name``` is a generic, category, or highly descriptive term not clearly associated with a single established {category} brand. Here is products {product}
+               ***OUTPUT MANDATE:** Provide the analysis in JSON/Dictionary Format
+              * Format: A single valid JSON object with keys: `Product_Name`, `Key_Feature`, and `Trending_Driver`.
+                  DO NOT INCLUDE EXTRA WORDS OR PHRASES FROM YOUR SIDE."
+  final_summary:
+  - role : "system"
+    content: "You are an expert market analyst and retail consultant specializing in the {category} category."
+  - role : "user"
+    content: "Your task is to analyze the provided product data and generate a comprehensive report in a single JSON object. The response must include a high-level **Industry Strategy** (for manufacturers/brands) and a highly specific **Store Owner Placement Strategy** (for retailers).
+              **Constraint:** The entire response must be a single JSON object.
+              **Input Data:** {data}
+              **Required JSON Structure and Content:**
+              1.  **'Report_Title / 'Market_Summary' / 'Key_Insights'**: These sections should be derived from the product data, focusing on current market trends
+                  *Note:* Insights must be supported by 'Product_Evidence' from the input list.
+              2.  **'Actionable_Strategy'**: This section must contain two distinct sub-sections:
+                  * **'Recommended_Actions' (Industry/Brand Perspective):** High-level actions for large brands (e.g., focus on R&D, influencer marketing).
+                    * **'Store_Owner_Placement_Strategy' (Retailer Perspective - CRITICAL):** Provide a detailed, easy-to-read strategy using an array of objects. Each object must define a 'Focus' the 'Products' to stock, and the 'Action' (where/how to place it).
+                    * **Focus Areas MUST include:** 'Core Sales Volume','High-Margin Growth','Niche', and 'Operational Tactics'
+                    **Output Format:** Return ONLY the complete JSON object"
+
+
+
+  
