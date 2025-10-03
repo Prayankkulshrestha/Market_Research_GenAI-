@@ -10,7 +10,7 @@ It is designed for business users in the **Retail & CPG** industries who need ti
 
 ---
 
-## ✨ Features
+## Features
 
 * **Automated LangGraph Workflow**: A modular, 6-node graph that handles query generation, web searching (using Tavily), product extraction, summarization, and final report generation.
 * **Interactive Dashboard**: A user-friendly Streamlit interface with separate tabs for the final summary report and detailed product insights.
@@ -20,7 +20,7 @@ It is designed for business users in the **Retail & CPG** industries who need ti
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 .
@@ -40,13 +40,9 @@ It is designed for business users in the **Retail & CPG** industries who need ti
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/your-username/Market_Research_GenAI.git](https://github.com/your-username/Market_Research_GenAI.git)
-    cd Market_Research_GenAI
-    ```
 
 2.  **Create and activate a virtual environment:**
     ```bash
@@ -67,7 +63,7 @@ It is designed for business users in the **Retail & CPG** industries who need ti
 
 ---
 
-## 🚀 Usage
+##  Usage
 
 ### 1. Run the Streamlit Dashboard
 
@@ -86,12 +82,12 @@ This is the primary way to use the application.
 You can also run the data processing workflow directly from the command line.
 
 ```bash
-python workflow.py --category "Energy Drinks" --start_date "2025-01-01" --end_date "2025-03-31"
+python main.py --category "Energy Drinks" --start_date "2025-01-01" --end_date "2025-03-31"
 ```
 
 ---
 
-## 🧪 Testing
+## Testing
 
 This project uses `pytest`. To run the test suite:
 
@@ -105,7 +101,7 @@ pytest -v --asyncio-mode=auto
 
 ---
 
-## 🛣️ Future Work
+## Future Work
 
 * **User Authentication**: Add a login system to the Streamlit dashboard.
 * **Multi-Category Analysis**: Add support for comparing multiple product categories in a single workflow run.
