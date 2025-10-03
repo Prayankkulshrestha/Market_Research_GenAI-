@@ -26,10 +26,10 @@ Integration tests for full workflow
 ├── workflow.py           
 ├── app.py            
 ├── tests/
-│   ├── test_cache_utils.py
-│   ├── test_nodes.py
-│   └── test_integration.py
-├── cache.json            # Cache storage (auto-generated)
+│     ├── test_cache_utils.py
+│     ├── test_nodes.py
+│     └── test_integration.py
+├── cache.json
 └── README.md
 
 ⚙️ Installation
@@ -75,11 +75,3 @@ Python 3.10+
 Streamlit
 
 LangChain / LangGraph
-
-Add authentication to dashboard
-
-Add support for multi-category workflows
-
-Deploy Streamlit app to cloud (e.g., Streamlit Cloud, Azure, or GCP)
-
-Would you like me to also include a Quick Start example with a sample workflow run and screenshot of
